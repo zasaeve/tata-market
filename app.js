@@ -67,11 +67,6 @@ const REF = {
   "images/bletilla-white.jpg": {},
   "images/spiraea.jpg": {},
   "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
-  "images/lycopodium.jpg": {},
-  "images/anthurium.jpg": {},
-  "images/mum-dyed.jpg": {},
-  "images/rose-blue.jpg": {},
-  "images/oncidium.jpg": {},
   "images/solidago.jpg":       { by: "Georg Slickers", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Solidago_canadensis_20050815_248.jpg" },
 };
 
