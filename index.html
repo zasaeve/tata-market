@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- 安全設定：只允許載入本站自己的檔案，不連任何外部網址、不送出任何資料 -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F7F5EE">
+<meta name="description" content="沓沓日花 Chichi's flower｜珈琲與花物語・南迴篇 台南水交社 單支花材零售價目，挑選後即時試算總價。">
+<title>沓沓日花｜水交社花材價目</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="brand">沓沓日花 <span>Chichi's flower</span></p>
+    <h1>今天的花，一支一支挑。</h1>
+    <p class="event">
+      <span>珈琲與花物語・南迴篇</span>
+      <span>11/20（五）– 11/22（日）12:00–18:00</span>
+      <span>台南水交社文化園區・戶外場域</span>
+    </p>
+    <p class="lead">點選顏色、按「＋」加支數，下方會自動算好總價。挑好後把清單拿給攤主看就可以結帳。</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="filters" aria-label="花材分類" id="filters"></nav>
+  <ul class="grid" id="grid" aria-live="polite"></ul>
+  <p class="fine">價格為單支零售價，花材依當日到貨為準，若與現場標示不同，以現場標示為準。<br>付款方式：現金、LINE Pay。本頁只在你的手機上試算，不會收集或傳送任何個人資料。</p>
+</main>
+
+<footer class="bar" id="bar">
+  <div class="wrap bar-in">
+    <div class="sum">
+      <span class="sum-n" id="sumCount">尚未選花</span>
+      <strong class="sum-t" id="sumTotal">NT$ 0</strong>
+    </div>
+    <button type="button" class="btn" id="openList" disabled>看清單</button>
+  </div>
+</footer>
+
+<dialog id="list" aria-labelledby="listTitle">
+  <div class="sheet">
+    <div class="sheet-head">
+      <h2 id="listTitle">我挑的花</h2>
+      <button type="button" class="x" id="closeList" aria-label="關閉清單">×</button>
+    </div>
+    <ul class="lines" id="lines"></ul>
+    <div class="sheet-total">
+      <span id="listCount"></span>
+      <strong id="listTotal"></strong>
+    </div>
+    <p class="sheet-note">請把這個畫面給攤主看，現金或 LINE Pay 結帳。</p>
+    <div class="sheet-act">
+      <button type="button" class="btn ghost" id="clearAll">全部清空</button>
+      <button type="button" class="btn" id="doneList">繼續挑花</button>
+    </div>
+  </div>
+</dialog>
+</body>
+</html>
