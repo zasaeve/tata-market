@@ -15,7 +15,7 @@ const FLOWERS = [
   { id: "thistle", name: "白色薊花", en: "White Thistle", cat: "主花", meaning: "高潔、獨立",
     colors: [{ id: "white", label: "白", swatch: "#E9ECE4", price: 250, img: null }] },                          // 450/5支
   { id: "tulip", name: "白鬱金香", en: "White Tulip", cat: "主花", meaning: "純潔的愛、體貼",
-    colors: [{ id: "white", label: "白", swatch: W, price: 150, img: null }] },                                   // 500/10支
+    colors: [{ id: "white", label: "白", swatch: W, price: 150, img: "images/tulip-white.jpg" }] },                                   // 500/10支
   { id: "lisianthus", name: "白桔梗", en: "Lisianthus", cat: "主花", meaning: "純潔、真誠不變的愛",
     colors: [{ id: "white", label: "白", swatch: W, price: 100, img: "images/lisianthus-white.jpg" }] },           // 300/10支
   { id: "gerbera", name: "小太陽", en: "Mini Gerbera", cat: "主花", meaning: "熱情、有朝氣，帶來好心情",
@@ -26,7 +26,7 @@ const FLOWERS = [
   { id: "anthurium", name: "火鶴", en: "Anthurium", cat: "主花", meaning: "熱情、大展宏圖",
     colors: [{ id: "std", label: "當日色", swatch: "#DCE5C8", price: 80, img: "images/anthurium.jpg" }] },         // 15/支
   { id: "pingpong", name: "乒乓菊", en: "Ping Pong Mum", cat: "主花", meaning: "圓滿、純真",
-    colors: [{ id: "white", label: "白", swatch: "#F4F1E4", price: 80, img: null }] },                            // 200/10支
+    colors: [{ id: "white", label: "白", swatch: "#F4F1E4", price: 80, img: "images/pingpong-white.jpg" }] },                            // 200/10支
   { id: "mum", name: "小染色菊", en: "Dyed Daisy Mum", cat: "主花", meaning: "開朗、長久的祝福",
     colors: [{ id: "dyed", label: "染色", swatch: "#9B2D7F", price: 80, img: "images/mum-dyed.jpg" }] },           // 100/5支
   { id: "scabiosa", name: "松蟲草", en: "Scabiosa", cat: "主花", meaning: "思念、不變的心",
