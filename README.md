@@ -19,10 +19,10 @@
 
 ```js
 { id: "bluerose", name: "藍玫瑰", en: "Blue Rose", cat: "玫瑰", meaning: "奇蹟、夢想成真",
-  colors: [{ id: "blue", label: "藍", swatch: "#7FA6D6", price: 240, img: "images/rose-blue.jpg" }] },  // 800/10支
+  colors: [{ id: "blue", label: "藍", swatch: "#7FA6D6", price: 250, img: "images/rose-blue.jpg" }] },  // 800/10支
 ```
 
-- 改價格：改 `price`（單支、新台幣整數）。目前定價＝單支進價 × 3，四捨五入到 10 元，每行後面的註解是進價。
+- 改價格：改 `price`（單支、新台幣整數）。目前統一 4 個價位：80（單支進價 15–20）、100（30–40）、150（50）、250（80–90），每行後面的註解是進價。
 - 加顏色：在 `colors` 裡多加一筆，可以有不同價格與照片。
 - 補照片：照片放進 `images/`，把 `img: null` 改成 `img: "images/檔名.jpg"`。
 - 分類：`cat` 只能是 `主花`、`玫瑰`、`配花`（對應 `CATS`）。
