@@ -132,77 +132,81 @@ function el(tag, props, ...kids) {
   return n;
 }
 
+
 /* ---------- 分類 ---------- */
+const CAT_EN = { "全部": "ALL", "主花": "FOCAL", "玫瑰": "ROSES", "配花": "FILLER" };
 function renderFilters() {
   const box = document.getElementById("filters");
   box.replaceChildren(...CATS.map(c => el("button", {
-    type: "button", class: "chip", "aria-pressed": String(c === filter), text: c,
+    type: "button", class: "pill", "aria-pressed": String(c === filter),
     on: { click: () => { filter = c; renderFilters(); renderGrid(); } }
-  })));
+  }, CAT_EN[c] + " ", el("span", { class: "zh", text: c }))));
 }
 
 /* ---------- 卡片 ---------- */
-function card(f) {
+function photo(f, c) {
+  if (c.img) return el("img", { src: c.img, alt: f.name + "（" + c.label + "）實拍", loading: "lazy", decoding: "async", width: "675", height: "900" });
+  const box = el("div", { class: "noimg", role: "img", "aria-label": f.name + "，實拍照準備中" },
+    el("span", { class: "noimg-n", text: f.name }), el("span", { class: "noimg-t", text: "實拍照準備中" }));
+  box.style.background = c.swatch;   // CSSOM 設定，不需 inline style 權限
+  return box;
+}
+
+function card(f, i) {
   const cid = picked.get(f.id) || f.colors[0].id;
   const c = f.colors.find(x => x.id === cid);
   const key = f.id + ":" + c.id;
   const qty = cart.get(key) || 0;
 
-  let img;
-  if (c.img) {
-    img = el("img", { src: c.img, alt: f.name + "（" + c.label + "）實拍", loading: "lazy", decoding: "async", width: "675", height: "900" });
-  } else {
-    img = el("div", { class: "noimg", role: "img", "aria-label": f.name + "，實拍照準備中" },
-      el("span", { class: "noimg-n", text: f.name }), el("span", { class: "noimg-t", text: "實拍照準備中" }));
-    img.style.background = c.swatch;
-  }
-
-  const swatches = el("div", { class: "swatches", role: "radiogroup", "aria-label": f.name + " 顏色" },
+  const tiles = el("div", { class: "tiles", role: "radiogroup", "aria-label": f.name + " 顏色" },
     ...f.colors.map(x => {
       const inCart = cart.get(f.id + ":" + x.id) || 0;
+      const sw = el("span", { class: "sw", "aria-hidden": "true" });
+      sw.style.background = x.swatch;
       const b = el("button", {
-        type: "button", class: "sw", role: "radio", "aria-checked": String(x.id === c.id),
+        type: "button", class: "tile", role: "radio", "aria-checked": String(x.id === c.id),
         "aria-label": x.label + (inCart ? "，已選 " + inCart + " 支" : ""),
         on: { click: () => { picked.set(f.id, x.id); renderGrid(); } }
-      }, el("span", { class: "dot", "aria-hidden": "true" }), el("span", { text: x.label }));
-      b.querySelector(".dot").style.background = x.swatch;   // CSSOM 設定，不需 inline style 權限
+      }, sw, el("span", { text: x.label }));
       if (inCart) b.append(el("span", { class: "badge", "aria-hidden": "true", text: String(inCart) }));
       return b;
     }));
 
-  const stepper = el("div", { class: "step" },
-    el("button", { type: "button", class: "minus", "aria-label": "減少一支 " + f.name + c.label, disabled: qty ? null : "", on: { click: () => setQty(key, qty - 1) } }, "−"),
-    el("output", { "aria-live": "polite", "aria-label": f.name + c.label + " 支數", text: String(qty) }),
+  const qtyBox = el("div", { class: "qty" },
+    el("button", { type: "button", "aria-label": "減少一支 " + f.name + c.label, disabled: qty ? null : "", on: { click: () => setQty(key, qty - 1) } }, "−"),
+    el("output", { class: "num", "aria-live": "polite", "aria-label": f.name + c.label + " 支數", text: String(qty) }),
     el("button", { type: "button", class: "plus", "aria-label": "增加一支 " + f.name + c.label, disabled: qty >= MAX_QTY ? "" : null, on: { click: () => setQty(key, qty + 1) } }, "＋")
   );
 
   return el("li", { class: "card" + (qty ? " on" : "") },
-    el("figure", { class: "ph" }, img, el("figcaption", { class: "cat", text: f.cat })),
-    el("div", { class: "body" },
-      el("div", { class: "row" },
-        el("h2", null, f.name, el("span", { class: "en", text: f.en })),
-        el("p", { class: "price" }, el("strong", { text: fmt(c.price) }), el("span", { text: " / 支" }))
-      ),
+    el("div", { class: "arch sm" }, photo(f, c)),
+    el("div", { class: "info" },
+      el("span", { class: "idx", text: String(i + 1).padStart(2, "0") + " / " + CAT_EN[f.cat] }),
+      el("h3", { class: "en", text: f.en }),
+      el("p", { class: "zh", text: f.name }),
       el("p", { class: "mean" }, el("span", { class: "tag", text: "花語" }), f.meaning),
-      swatches,
-      stepper
+      tiles,
+      el("div", { class: "buy" },
+        el("p", { class: "price" }, el("span", { class: "num", text: fmt(c.price) }), el("small", { text: " / 支" })),
+        qtyBox)
     )
   );
 }
 
 function renderGrid() {
   const list = FLOWERS.filter(f => filter === "全部" || f.cat === filter);
-  document.getElementById("grid").replaceChildren(...list.map(card));
+  document.getElementById("grid").replaceChildren(...list.map(f => card(f, FLOWERS.indexOf(f))));
 }
 
 /* ---------- 數量與總價 ---------- */
 function setQty(key, n) {
   if (!byKey.has(key)) return;
   const q = clampQty(n);
+  const before = cart.get(key) || 0;
   if (q) cart.set(key, q); else cart.delete(key);
   saveCart();
   renderGrid();
-  renderTotals();
+  renderTotals(q > before);
   if (document.getElementById("list").open) renderLines();
 }
 
@@ -212,45 +216,59 @@ function totals() {
   return { count, total };
 }
 
-function renderTotals() {
+function renderTotals(bump) {
   const { count, total } = totals();
-  document.getElementById("sumCount").textContent = count ? "已選 " + count + " 支" : "尚未選花";
+  document.getElementById("pillCount").textContent = String(count);
   document.getElementById("sumTotal").textContent = fmt(total);
-  document.getElementById("openList").disabled = !count;
-  document.getElementById("bar").classList.toggle("has", count > 0);
+  const pill = document.getElementById("openList");
+  pill.classList.toggle("has", count > 0);
+  if (bump) { pill.classList.remove("bump"); void pill.offsetWidth; pill.classList.add("bump"); }
 }
 
-/* ---------- 清單 ---------- */
+/* ---------- 清單抽屜 ---------- */
 function renderLines() {
   const rows = [];
   for (const f of FLOWERS) for (const c of f.colors) {
     const key = f.id + ":" + c.id, q = cart.get(key);
     if (!q) continue;
-    const thumb = c.img ? el("img", { src: c.img, alt: "", width: "48", height: "64" }) : el("span", { class: "thumb-none", "aria-hidden": "true" });
-    if (!c.img) thumb.style.background = c.swatch;
-    rows.push(el("li", null,
+    const thumb = el("div", { class: "thumb" }, photo(f, c));
+    rows.push(el("li", { class: "ln" },
       thumb,
-      el("div", { class: "ln" },
-        el("b", { text: f.name + "・" + c.label }),
-        el("span", { text: fmt(c.price) + " × " + q })),
-      el("div", { class: "lq" },
-        el("button", { type: "button", "aria-label": "減少一支", on: { click: () => setQty(key, q - 1) } }, "−"),
-        el("button", { type: "button", "aria-label": "增加一支", on: { click: () => setQty(key, q + 1) } }, "＋")),
-      el("strong", { class: "lt", text: fmt(c.price * q) })
+      el("div", null,
+        el("div", { class: "t", text: f.name + "・" + c.label }),
+        el("div", { class: "s", text: fmt(c.price) + " × " + q }),
+        el("div", { class: "mini" },
+          el("button", { type: "button", class: "chipbtn alt", "aria-label": "減少一支 " + f.name, on: { click: () => setQty(key, q - 1) } }, "−"),
+          el("button", { type: "button", class: "chipbtn", "aria-label": "增加一支 " + f.name, on: { click: () => setQty(key, q + 1) } }, "＋"))),
+      el("b", { class: "num lt", text: fmt(c.price * q) })
     ));
   }
   document.getElementById("lines").replaceChildren(...rows);
   const { count, total } = totals();
+  document.getElementById("emptyNote").hidden = count > 0;
   document.getElementById("listCount").textContent = "共 " + count + " 支";
   document.getElementById("listTotal").textContent = fmt(total);
-  if (!count && document.getElementById("list").open) document.getElementById("list").close();
+  document.getElementById("clearAll").disabled = !count;
+}
+
+/* ---------- 首屏拱門輪播（實拍照） ---------- */
+function heroArch() {
+  const box = document.getElementById("heroArch");
+  const shots = [];
+  FLOWERS.forEach(f => f.colors.forEach(c => { if (c.img) shots.push({ src: c.img, alt: f.name }); }));
+  const imgs = shots.map((s, i) => el("img", { src: s.src, alt: i === 0 ? "今日花材：" + s.alt : "", class: i === 0 ? "on" : null, loading: i < 2 ? "eager" : "lazy" }));
+  box.replaceChildren(...imgs);
+  if (imgs.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let n = 0;
+  setInterval(() => { imgs[n].classList.remove("on"); n = (n + 1) % imgs.length; imgs[n].classList.add("on"); }, 3200);
 }
 
 function init() {
   loadCart();
+  heroArch();
   renderFilters();
   renderGrid();
-  renderTotals();
+  renderTotals(false);
   const dlg = document.getElementById("list");
   document.getElementById("openList").addEventListener("click", () => { renderLines(); dlg.showModal(); });
   document.getElementById("closeList").addEventListener("click", () => dlg.close());
@@ -258,7 +276,7 @@ function init() {
   dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
   document.getElementById("clearAll").addEventListener("click", () => {
     if (!window.confirm("確定要清空所有已選的花嗎？")) return;
-    cart.clear(); saveCart(); renderGrid(); renderTotals(); dlg.close();
+    cart.clear(); saveCart(); renderGrid(); renderTotals(false); renderLines();
   });
 }
 
