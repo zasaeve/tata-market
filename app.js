@@ -35,7 +35,7 @@ const FLOWERS = [
   { id: "bluerose", name: "藍玫瑰", en: "Blue Rose", cat: "玫瑰", meaning: "奇蹟、夢想成真",
     colors: [{ id: "blue", label: "藍", swatch: "#7FA6D6", price: 250, img: "images/rose-blue.jpg" }] },          // 800/10支
   { id: "montmartre", name: "蒙馬特玫瑰", en: "Montmartre Rose", cat: "玫瑰", meaning: "浪漫、優雅的愛",
-    colors: [{ id: "std", label: "當日色", swatch: "#B98A97", price: 100, img: "images/rose-montmartre.jpg" }] },                           // 600/20支
+    colors: [{ id: "std", label: "當日色", swatch: "#B98A97", price: 80, img: "images/rose-montmartre.jpg" }] },                           // 600/20支
   { id: "pearl", name: "珍珠玫瑰", en: "Pearl Rose", cat: "玫瑰", meaning: "珍惜、純真的愛",
     colors: [{ id: "std", label: "當日色", swatch: "#F6D3BE", price: 80, img: "images/rose-pearl.jpg" }] },                           // 350/20支
   // 配花
