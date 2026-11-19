@@ -30,12 +30,12 @@ const FLOWERS = [
   { id: "mum", name: "小染色菊", en: "Dyed Daisy Mum", cat: "主花", meaning: "開朗、長久的祝福",
     colors: [{ id: "dyed", label: "染色", swatch: "#9B2D7F", price: 80, img: "images/mum-dyed.jpg" }] },           // 100/5支
   { id: "scabiosa", name: "松蟲草", en: "Scabiosa", cat: "主花", meaning: "思念、不變的心",
-    colors: [{ id: "std", label: "當日色", swatch: "#C9C2DE", price: 80, img: "images/scabiosa.jpg" }] },                           // 200/10支
+    colors: [{ id: "std", label: "當日色", swatch: "#6E1F2A", price: 80, img: "images/scabiosa.jpg" }] },                           // 200/10支
   // 玫瑰
   { id: "bluerose", name: "藍玫瑰", en: "Blue Rose", cat: "玫瑰", meaning: "奇蹟、夢想成真",
     colors: [{ id: "blue", label: "藍", swatch: "#7FA6D6", price: 250, img: "images/rose-blue.jpg" }] },          // 800/10支
   { id: "montmartre", name: "蒙馬特玫瑰", en: "Montmartre Rose", cat: "玫瑰", meaning: "浪漫、優雅的愛",
-    colors: [{ id: "std", label: "當日色", swatch: "#F1D2D6", price: 100, img: "images/rose-montmartre.jpg" }] },                           // 600/20支
+    colors: [{ id: "std", label: "當日色", swatch: "#B98A97", price: 100, img: "images/rose-montmartre.jpg" }] },                           // 600/20支
   { id: "pearl", name: "珍珠玫瑰", en: "Pearl Rose", cat: "玫瑰", meaning: "珍惜、純真的愛",
     colors: [{ id: "std", label: "當日色", swatch: "#F3E4DC", price: 80, img: "images/rose-pearl.jpg" }] },                           // 350/20支
   // 配花
@@ -55,17 +55,18 @@ const FLOWERS = [
     colors: [{ id: "green", label: "綠", swatch: "#A9B98E", price: 80, img: "images/lycopodium.jpg" }] }                             // 180/10支
 ];
 
-/* 還沒有實拍照的花，先用 Wikimedia Commons 上開放授權的照片當「示意圖」。
- * 頁面會在照片上標「示意圖」，並在頁尾列出作者與授權。換成實拍照時，把這裡那一行刪掉即可。 */
+/* 不是現場實拍的照片：頁面會在照片上標「示意圖」。
+ * 有 url 的是 Wikimedia Commons 開放授權照片，頁尾會列出作者與授權；{} 是攤主提供的參考照。
+ * 換成實拍照時，把這裡那一行刪掉即可。 */
 const REF = {
   "images/thistle-white.jpg":   { by: "Bob Collowan", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Eryngium_giganteum,_Thames_Barrier_Park,_London.jpg" },
-  "images/scabiosa.jpg":        { by: "Krzysztof Golik", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Scabiosa_atropurpurea_in_Aveyron_01.jpg" },
-  "images/rose-montmartre.jpg": { by: "Alex Blăjan", lic: "CC0", url: "https://commons.wikimedia.org/wiki/File:Rose_Bouquet_(Unsplash).jpg" },
+  "images/scabiosa.jpg": {},
+  "images/rose-montmartre.jpg": {},
   "images/rose-pearl.jpg":      { by: "Geolina163", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Rosarium_Baden_Rosa_%27Pink_Spray%27_Lens_1980_02.jpg" },
-  "images/bletilla-white.jpg":  { by: "Namsell", lic: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Bletilla_striata_var_alba.JPG" },
-  "images/spiraea.jpg":         { by: "Ввласенко", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Inflorescence_of_Spiraea_thunbergii.jpg" },
+  "images/bletilla-white.jpg": {},
+  "images/spiraea.jpg": {},
   "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
-  "images/lycopodium.jpg":      { by: "Steve Fitzgerald", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Palhinhaea_cernua_SF26245-01.jpg" }
+  "images/lycopodium.jpg": {},
 };
 
 const CATS = ["全部", "主花", "玫瑰", "配花"];
@@ -255,7 +256,7 @@ function renderCredits() {
   const items = [];
   for (const f of FLOWERS) for (const c of f.colors) {
     const r = REF[c.img];
-    if (r) items.push(el("li", {}, f.name + "：", el("a", { href: r.url, rel: "noopener noreferrer", text: r.by }), "／" + r.lic));
+    if (r && r.url) items.push(el("li", {}, f.name + "：", el("a", { href: r.url, rel: "noopener noreferrer", text: r.by }), "／" + r.lic));
   }
   box.hidden = !items.length;
   box.querySelector("ul").replaceChildren(...items);
