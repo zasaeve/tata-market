@@ -13,7 +13,7 @@ const FLOWERS = [
   { id: "eryngium", name: "海膽紫薊", en: "Eryngium", cat: "主花", meaning: "獨立、堅強，溫柔地守護",
     colors: [{ id: "blue", label: "藍紫", swatch: "#6F7FB0", price: 250, img: "images/eryngium.jpg" }] },        // 450/5支
   { id: "thistle", name: "白色薊花", en: "White Thistle", cat: "主花", meaning: "高潔、獨立",
-    colors: [{ id: "white", label: "白", swatch: "#E9ECE4", price: 250, img: null }] },                          // 450/5支
+    colors: [{ id: "white", label: "白", swatch: "#E9ECE4", price: 250, img: "images/thistle-white.jpg" }] },                          // 450/5支
   { id: "tulip", name: "白鬱金香", en: "White Tulip", cat: "主花", meaning: "純潔的愛、體貼",
     colors: [{ id: "white", label: "白", swatch: W, price: 150, img: "images/tulip-white.jpg" }] },                                   // 500/10支
   { id: "lisianthus", name: "白桔梗", en: "Lisianthus", cat: "主花", meaning: "純潔、真誠不變的愛",
@@ -30,30 +30,43 @@ const FLOWERS = [
   { id: "mum", name: "小染色菊", en: "Dyed Daisy Mum", cat: "主花", meaning: "開朗、長久的祝福",
     colors: [{ id: "dyed", label: "染色", swatch: "#9B2D7F", price: 80, img: "images/mum-dyed.jpg" }] },           // 100/5支
   { id: "scabiosa", name: "松蟲草", en: "Scabiosa", cat: "主花", meaning: "思念、不變的心",
-    colors: [{ id: "std", label: "當日色", swatch: "#C9C2DE", price: 80, img: null }] },                           // 200/10支
+    colors: [{ id: "std", label: "當日色", swatch: "#C9C2DE", price: 80, img: "images/scabiosa.jpg" }] },                           // 200/10支
   // 玫瑰
   { id: "bluerose", name: "藍玫瑰", en: "Blue Rose", cat: "玫瑰", meaning: "奇蹟、夢想成真",
     colors: [{ id: "blue", label: "藍", swatch: "#7FA6D6", price: 250, img: "images/rose-blue.jpg" }] },          // 800/10支
   { id: "montmartre", name: "蒙馬特玫瑰", en: "Montmartre Rose", cat: "玫瑰", meaning: "浪漫、優雅的愛",
-    colors: [{ id: "std", label: "當日色", swatch: "#F1D2D6", price: 100, img: null }] },                           // 600/20支
+    colors: [{ id: "std", label: "當日色", swatch: "#F1D2D6", price: 100, img: "images/rose-montmartre.jpg" }] },                           // 600/20支
   { id: "pearl", name: "珍珠玫瑰", en: "Pearl Rose", cat: "玫瑰", meaning: "珍惜、純真的愛",
-    colors: [{ id: "std", label: "當日色", swatch: "#F3E4DC", price: 80, img: null }] },                           // 350/20支
+    colors: [{ id: "std", label: "當日色", swatch: "#F3E4DC", price: 80, img: "images/rose-pearl.jpg" }] },                           // 350/20支
   // 配花
   { id: "chamomile", name: "洋甘菊", en: "Chamomile", cat: "配花", meaning: "逆境中的力量、苦盡甘來",
     colors: [{ id: "white", label: "白", swatch: W, price: 250, img: "images/chamomile.jpg" }] },                 // 450/5支
   { id: "bletilla", name: "白芨花", en: "Bletilla", cat: "配花", meaning: "堅強、樸實的祝福",
-    colors: [{ id: "white", label: "白", swatch: "#F1EEF2", price: 100, img: null }] },                           // 200/5支
+    colors: [{ id: "white", label: "白", swatch: "#F1EEF2", price: 100, img: "images/bletilla-white.jpg" }] },                           // 200/5支
   { id: "spiraea", name: "雪柳", en: "Spiraea", cat: "配花", meaning: "溫柔、可愛",
-    colors: [{ id: "white", label: "白", swatch: "#EEF0E6", price: 100, img: null }] },                           // 200/5支
+    colors: [{ id: "white", label: "白", swatch: "#EEF0E6", price: 100, img: "images/spiraea.jpg" }] },                           // 200/5支
   { id: "waxflower", name: "白蠟梅", en: "Waxflower", cat: "配花", meaning: "持久的愛與成功",
     colors: [{ id: "white", label: "白", swatch: "#F3E9EA", price: 100, img: "images/waxflower.jpg" }] },          // 300/10支
   { id: "oncidium", name: "文心蘭", en: "Oncidium", cat: "配花", meaning: "快樂無憂、隱藏的愛",
     colors: [{ id: "yellow", label: "黃", swatch: "#EFCB2B", price: 80, img: "images/oncidium.jpg" }] },          // 200/10支
   { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "值得讚美、充滿力量",
-    colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 80, img: null }] },                         // 100/5支
+    colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 80, img: "images/fennel.jpg" }] },                         // 100/5支
   { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "清新、自在",
-    colors: [{ id: "green", label: "綠", swatch: "#A9B98E", price: 80, img: null }] }                             // 180/10支
+    colors: [{ id: "green", label: "綠", swatch: "#A9B98E", price: 80, img: "images/lycopodium.jpg" }] }                             // 180/10支
 ];
+
+/* 還沒有實拍照的花，先用 Wikimedia Commons 上開放授權的照片當「示意圖」。
+ * 頁面會在照片上標「示意圖」，並在頁尾列出作者與授權。換成實拍照時，把這裡那一行刪掉即可。 */
+const REF = {
+  "images/thistle-white.jpg":   { by: "Bob Collowan", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Eryngium_giganteum,_Thames_Barrier_Park,_London.jpg" },
+  "images/scabiosa.jpg":        { by: "Krzysztof Golik", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Scabiosa_atropurpurea_in_Aveyron_01.jpg" },
+  "images/rose-montmartre.jpg": { by: "Alex Blăjan", lic: "CC0", url: "https://commons.wikimedia.org/wiki/File:Rose_Bouquet_(Unsplash).jpg" },
+  "images/rose-pearl.jpg":      { by: "Geolina163", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Rosarium_Baden_Rosa_%27Pink_Spray%27_Lens_1980_02.jpg" },
+  "images/bletilla-white.jpg":  { by: "Namsell", lic: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Bletilla_striata_var_alba.JPG" },
+  "images/spiraea.jpg":         { by: "Ввласенко", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Inflorescence_of_Spiraea_thunbergii.jpg" },
+  "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
+  "images/lycopodium.jpg":      { by: "Steve Fitzgerald", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Palhinhaea_cernua_SF26245-01.jpg" }
+};
 
 const CATS = ["全部", "主花", "玫瑰", "配花"];
 const MAX_QTY = 99;
@@ -62,6 +75,7 @@ const STORE_KEY = "tata-market-cart-v1";
 /* ---------- 資料凍結：頁面執行時無法被竄改 ---------- */
 FLOWERS.forEach(f => { f.colors.forEach(Object.freeze); Object.freeze(f.colors); Object.freeze(f); });
 Object.freeze(FLOWERS);
+Object.values(REF).forEach(Object.freeze); Object.freeze(REF);
 
 const byKey = new Map();
 FLOWERS.forEach(f => f.colors.forEach(c => byKey.set(f.id + ":" + c.id, { f, c })));
@@ -117,7 +131,7 @@ function renderFilters() {
 
 /* ---------- 卡片 ---------- */
 function photo(f, c) {
-  if (c.img) return el("img", { src: c.img, alt: f.name + "（" + c.label + "）實拍", loading: "lazy", decoding: "async", width: "675", height: "900" });
+  if (c.img) return el("img", { src: c.img, alt: f.name + "（" + c.label + "）" + (REF[c.img] ? "示意圖" : "實拍"), loading: "lazy", decoding: "async", width: "675", height: "900" });
   const box = el("div", { class: "noimg", role: "img", "aria-label": f.name + "，實拍照準備中" },
     el("span", { class: "noimg-n", text: f.name }), el("span", { class: "noimg-t", text: "實拍照準備中" }));
   box.style.background = c.swatch;   // CSSOM 設定，不需 inline style 權限
@@ -151,7 +165,7 @@ function card(f, i) {
   );
 
   return el("li", { class: "card" + (qty ? " on" : "") },
-    el("div", { class: "arch sm" }, photo(f, c)),
+    el("div", { class: "arch sm" }, photo(f, c), REF[c.img] ? el("span", { class: "refbadge", text: "示意圖" }) : null),
     el("div", { class: "info" },
       el("span", { class: "idx", text: String(i + 1).padStart(2, "0") + " / " + CAT_EN[f.cat] }),
       el("h3", { class: "en", text: f.en }),
@@ -227,7 +241,7 @@ function renderLines() {
 function heroArch() {
   const box = document.getElementById("heroArch");
   const shots = [];
-  FLOWERS.forEach(f => f.colors.forEach(c => { if (c.img) shots.push({ src: c.img, alt: f.name }); }));
+  FLOWERS.forEach(f => f.colors.forEach(c => { if (c.img && !REF[c.img]) shots.push({ src: c.img, alt: f.name }); }));
   const imgs = shots.map((s, i) => el("img", { src: s.src, alt: i === 0 ? "今日花材：" + s.alt : "", class: i === 0 ? "on" : null, loading: i < 2 ? "eager" : "lazy" }));
   box.replaceChildren(...imgs);
   if (imgs.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -235,7 +249,20 @@ function heroArch() {
   setInterval(() => { imgs[n].classList.remove("on"); n = (n + 1) % imgs.length; imgs[n].classList.add("on"); }, 3200);
 }
 
+function renderCredits() {
+  const box = document.getElementById("credits");
+  if (!box) return;
+  const items = [];
+  for (const f of FLOWERS) for (const c of f.colors) {
+    const r = REF[c.img];
+    if (r) items.push(el("li", {}, f.name + "：", el("a", { href: r.url, rel: "noopener noreferrer", text: r.by }), "／" + r.lic));
+  }
+  box.hidden = !items.length;
+  box.querySelector("ul").replaceChildren(...items);
+}
+
 function init() {
+  renderCredits();
   loadCart();
   heroArch();
   renderFilters();
