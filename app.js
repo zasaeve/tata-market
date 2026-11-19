@@ -23,17 +23,17 @@ const FLOWERS = [
       { id: "white", label: "白", swatch: W, price: 80, img: "images/gerbera-white.jpg" },                         // 150/10支
       { id: "pink", label: "粉", swatch: "#F2B4C2", price: 80, img: "images/gerbera-pink.jpg" },
       { id: "yellow", label: "黃", swatch: "#F1D35A", price: 80, img: "images/gerbera-yellow.jpg" }] },
-  { id: "anthurium", name: "火鶴", en: "Anthurium", cat: "主花", meaning: "熱情、大展宏圖",
-    colors: [{ id: "std", label: "當日色", swatch: "#DCE5C8", price: 80, img: "images/anthurium.jpg" }] },         // 15/支
+  { id: "anthurium", name: "大地火鶴", en: "Anthurium", cat: "主花", meaning: "熱情、大展宏圖",
+    colors: [{ id: "std", label: "珊瑚橘", swatch: "#E8907E", price: 80, img: "images/anthurium.jpg" }] },         // 15/支
   { id: "pingpong", name: "乒乓菊", en: "Ping Pong Mum", cat: "主花", meaning: "圓滿、純真",
     colors: [{ id: "white", label: "白", swatch: "#F4F1E4", price: 80, img: "images/pingpong-white.jpg" }] },                            // 200/10支
-  { id: "mum", name: "小染色菊", en: "Dyed Daisy Mum", cat: "主花", meaning: "開朗、長久的祝福",
-    colors: [{ id: "dyed", label: "染色", swatch: "#9B2D7F", price: 80, img: "images/mum-dyed.jpg" }] },           // 100/5支
+  { id: "mum", name: "染色小菊", en: "Dyed Daisy Mum", cat: "主花", meaning: "開朗、長久的祝福",
+    colors: [{ id: "dyed", label: "染色", swatch: "#F3CFA0", price: 80, img: "images/mum-dyed.jpg" }] },           // 100/5支
   { id: "scabiosa", name: "松蟲草", en: "Scabiosa", cat: "主花", meaning: "思念、不變的心",
     colors: [{ id: "std", label: "當日色", swatch: "#6E1F2A", price: 80, img: "images/scabiosa.jpg" }] },                           // 200/10支
   // 玫瑰
   { id: "bluerose", name: "藍玫瑰", en: "Blue Rose", cat: "玫瑰", meaning: "奇蹟、夢想成真",
-    colors: [{ id: "blue", label: "藍", swatch: "#7FA6D6", price: 250, img: "images/rose-blue.jpg" }] },          // 800/10支
+    colors: [{ id: "blue", label: "藍", swatch: "#A5C6E4", price: 250, img: "images/rose-blue.jpg" }] },          // 800/10支
   { id: "montmartre", name: "蒙馬特玫瑰", en: "Montmartre Rose", cat: "玫瑰", meaning: "浪漫、優雅的愛",
     colors: [{ id: "std", label: "當日色", swatch: "#B98A97", price: 100, img: "images/rose-montmartre.jpg" }] },                           // 600/20支
   { id: "pearl", name: "珍珠玫瑰", en: "Pearl Rose", cat: "玫瑰", meaning: "珍惜、純真的愛",
@@ -47,8 +47,8 @@ const FLOWERS = [
     colors: [{ id: "white", label: "白", swatch: "#EEF0E6", price: 100, img: "images/spiraea.jpg" }] },                           // 200/5支
   { id: "waxflower", name: "白蠟梅", en: "Waxflower", cat: "配花", meaning: "持久的愛與成功",
     colors: [{ id: "white", label: "白", swatch: "#F3E9EA", price: 100, img: "images/waxflower.jpg" }] },          // 300/10支
-  { id: "oncidium", name: "文心蘭", en: "Oncidium", cat: "配花", meaning: "快樂無憂、隱藏的愛",
-    colors: [{ id: "yellow", label: "黃", swatch: "#EFCB2B", price: 80, img: "images/oncidium.jpg" }] },          // 200/10支
+  { id: "oncidium", name: "豹紋文心蘭", en: "Leopard Oncidium", cat: "配花", meaning: "快樂無憂、隱藏的愛",
+    colors: [{ id: "yellow", label: "豹紋", swatch: "#7B2A3B", price: 80, img: "images/oncidium.jpg" }] },          // 200/10支
   { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "值得讚美、充滿力量",
     colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 80, img: "images/fennel.jpg" }] },                         // 100/5支
   { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "清新、自在",
@@ -68,6 +68,10 @@ const REF = {
   "images/spiraea.jpg": {},
   "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
   "images/lycopodium.jpg": {},
+  "images/anthurium.jpg": {},
+  "images/mum-dyed.jpg": {},
+  "images/rose-blue.jpg": {},
+  "images/oncidium.jpg": {},
   "images/solidago.jpg":       { by: "Georg Slickers", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Solidago_canadensis_20050815_248.jpg" },
 };
 
