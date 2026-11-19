@@ -37,7 +37,7 @@ const FLOWERS = [
   { id: "montmartre", name: "蒙馬特玫瑰", en: "Montmartre Rose", cat: "玫瑰", meaning: "浪漫、優雅的愛",
     colors: [{ id: "std", label: "當日色", swatch: "#B98A97", price: 100, img: "images/rose-montmartre.jpg" }] },                           // 600/20支
   { id: "pearl", name: "珍珠玫瑰", en: "Pearl Rose", cat: "玫瑰", meaning: "珍惜、純真的愛",
-    colors: [{ id: "std", label: "當日色", swatch: "#F3E4DC", price: 80, img: "images/rose-pearl.jpg" }] },                           // 350/20支
+    colors: [{ id: "std", label: "當日色", swatch: "#F6D3BE", price: 80, img: "images/rose-pearl.jpg" }] },                           // 350/20支
   // 配花
   { id: "chamomile", name: "洋甘菊", en: "Chamomile", cat: "配花", meaning: "逆境中的力量、苦盡甘來",
     colors: [{ id: "white", label: "白", swatch: W, price: 250, img: "images/chamomile.jpg" }] },                 // 450/5支
@@ -62,7 +62,6 @@ const REF = {
   "images/thistle-white.jpg":   { by: "Bob Collowan", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Eryngium_giganteum,_Thames_Barrier_Park,_London.jpg" },
   "images/scabiosa.jpg": {},
   "images/rose-montmartre.jpg": {},
-  "images/rose-pearl.jpg":      { by: "Geolina163", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Rosarium_Baden_Rosa_%27Pink_Spray%27_Lens_1980_02.jpg" },
   "images/bletilla-white.jpg": {},
   "images/spiraea.jpg": {},
   "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
