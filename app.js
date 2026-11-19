@@ -4,7 +4,7 @@
  */
 "use strict";
 
-/* 依 11/19 進貨（成本表「支出明細」）定價：統一 4 個價位 80／100／150／250（單支進價 15–20／30–40／50／80–90）。
+/* 依 11/19 進貨（成本表「支出明細」）定價：60／80／100／180／250（單支進價約 15–20 → 80、30–40 → 100、50 → 180、80–90 → 250；鹿角草、麒麟草 60）。
  * img: null 代表還沒有實拍照，頁面會顯示「實拍照準備中」的色塊。
  * 補照片：把照片放進 images/ 資料夾，再把 null 改成 "images/檔名.jpg"。 */
 const W = "#F7F5EE";
@@ -15,7 +15,7 @@ const FLOWERS = [
   { id: "thistle", name: "白色薊花", en: "White Thistle", cat: "主花", meaning: "高潔、獨立",
     colors: [{ id: "white", label: "白", swatch: "#E9ECE4", price: 250, img: "images/thistle-white.jpg" }] },                          // 450/5支
   { id: "tulip", name: "白鬱金香", en: "White Tulip", cat: "主花", meaning: "純潔的愛、體貼",
-    colors: [{ id: "white", label: "白", swatch: W, price: 150, img: "images/tulip-white.jpg" }] },                                   // 500/10支
+    colors: [{ id: "white", label: "白", swatch: W, price: 180, img: "images/tulip-white.jpg" }] },                                   // 500/10支
   { id: "lisianthus", name: "白桔梗", en: "Lisianthus", cat: "主花", meaning: "純潔、真誠不變的愛",
     colors: [{ id: "white", label: "白", swatch: W, price: 100, img: "images/lisianthus-white.jpg" }] },           // 300/10支
   { id: "gerbera", name: "小太陽", en: "Mini Gerbera", cat: "主花", meaning: "熱情、有朝氣，帶來好心情",
@@ -52,7 +52,9 @@ const FLOWERS = [
   { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "值得讚美、充滿力量",
     colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 80, img: "images/fennel.jpg" }] },                         // 100/5支
   { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "清新、自在",
-    colors: [{ id: "green", label: "綠", swatch: "#A9B98E", price: 80, img: "images/lycopodium.jpg" }] }                             // 180/10支
+    colors: [{ id: "green", label: "綠", swatch: "#A9B98E", price: 60, img: "images/lycopodium.jpg" }] },                             // 180/10支
+  { id: "solidago", name: "麒麟草", en: "Solidago", cat: "配花", meaning: "吸引力、溫暖的陪伴",
+    colors: [{ id: "yellow", label: "黃", swatch: "#E3CF3E", price: 60, img: "images/solidago.jpg" }] }                         // 進價待補
 ];
 
 /* 不是現場實拍的照片：頁面會在照片上標「示意圖」。
@@ -66,6 +68,7 @@ const REF = {
   "images/spiraea.jpg": {},
   "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
   "images/lycopodium.jpg": {},
+  "images/solidago.jpg":       { by: "Georg Slickers", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Solidago_canadensis_20050815_248.jpg" },
 };
 
 const CATS = ["全部", "主花", "玫瑰", "配花"];
