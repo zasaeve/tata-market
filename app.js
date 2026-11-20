@@ -69,6 +69,9 @@ const REF = {
   "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
 };
 
+/* 市集結束後關閉：超過這個時間（台灣時間），頁面只顯示「已結束」 */
+const CLOSE_AT = Date.parse("2026-11-22T19:00:00+08:00");
+
 const CATS = ["全部", "主花", "玫瑰", "配花"];
 const MAX_QTY = 99;
 const STORE_KEY = "tata-market-cart-v1";
@@ -277,7 +280,23 @@ function renderCredits() {
   box.querySelector("ul").replaceChildren(...items);
 }
 
+function showClosed() {
+  document.querySelectorAll("body > *").forEach(n => { n.hidden = true; });
+  const box = el("main", { class: "closed" },
+    el("b", { text: "沓沓日花 Chichi's flower" }),
+    el("h1", { text: "本次市集已結束" }),
+    el("p", { text: "謝謝你來水交社找我們挑花。" }),
+    el("p", { text: "下次市集見，也歡迎到 IG @chichis_flower 看看。" }));
+  document.body.append(box);
+  try { localStorage.removeItem(STORE_KEY); } catch (e) { /* 無痕模式等情況忽略 */ }
+}
+
+function isClosed() { return Date.now() >= CLOSE_AT; }
+
 function init() {
+  if (isClosed()) return showClosed();
+  // 頁面一直開著跨過關閉時間：切回來時再檢查一次（結帳中不會突然消失）
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && isClosed()) location.reload(); });
   renderCredits();
   loadCart();
   heroArch();

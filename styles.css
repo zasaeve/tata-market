@@ -166,3 +166,10 @@ dialog::backdrop { background: rgba(30, 36, 22, .45); }
 
 /* 省電：離開畫面的動畫暫停 */
 .hero.off .giant div, .ticker.off div { animation-play-state: paused; }
+
+/* 市集結束頁 */
+.closed { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 24px 16px; text-align: center; background: var(--paper); }
+.closed b { font-family: var(--f-latin); font-size: 12px; letter-spacing: .12em; color: var(--muted); }
+.closed h1 { margin: 8px 0 6px; font-weight: 900; font-size: 30px; }
+.closed p { margin: 0; font-size: 15px; }
+[hidden] { display: none !important; }

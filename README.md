@@ -29,6 +29,13 @@
 - 改過 `app.js`、`styles.css`、`fonts.css` 後，要把 `index.html` 裡這三個檔名後面的 `?v=` 換成新的版本號，手機才不會繼續用舊檔。
 - 分類：`cat` 只能是 `主花`、`玫瑰`、`配花`（對應 `CATS`）。
 
+## 市集結束自動關閉
+
+- `app.js` 的 `CLOSE_AT`（目前是台灣時間 2026/11/22 19:00）：時間一到，頁面只顯示「本次市集已結束」，並清掉手機上的購物清單。
+- `.github/workflows/close-site.yml`：GitHub 會在同一時間自動把網站換成結束頁，並刪除花材資料與照片（排程可能延遲幾分鐘到一小時）。
+- 要提早手動下架：GitHub repo → Actions → 市集結束自動下架 → Run workflow，mode 選 `close`。
+- 要延後：同時改 `CLOSE_AT` 和 workflow 裡的 cron 與時間判斷。
+
 ## 安全設計
 
 這是純靜態網站，沒有後端、沒有表單、不收任何個人資料。

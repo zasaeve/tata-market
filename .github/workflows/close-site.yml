@@ -1,0 +1,80 @@
+# 市集結束自動下架：時間到就把網站換成「本次市集已結束」頁，並移除花材資料與照片。
+# 台灣時間 2026/11/22 19:00（= UTC 11:00）執行。GitHub 的排程可能延遲幾分鐘到一小時，
+# 但網頁本身也會在同一時間自己切換成結束畫面，所以客人看不到內容。
+name: 市集結束自動下架
+
+on:
+  schedule:
+    - cron: "0 11 22 11 *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run 只演練不改網站；close 立刻下架"
+        required: true
+        default: dry-run
+        type: choice
+        options: [dry-run, close]
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency: close-site
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 確認時間（排程只在 2026/11/22 19:00 之後、11/30 之前動作）
+        if: github.event_name == 'schedule'
+        run: |
+          now=$(TZ=Asia/Taipei date +%Y%m%d%H%M)
+          echo "台灣時間 $now"
+          if [ "$now" -lt 202611221900 ] || [ "$now" -gt 202611302359 ]; then echo "SKIP=1" >> "$GITHUB_ENV"; fi
+
+      - name: 換成結束頁
+        if: env.SKIP != '1'
+        run: |
+          git rm -rq --ignore-unmatch app.js images
+          cat > index.html <<'HTML'
+          <!doctype html>
+          <html lang="zh-Hant-TW">
+          <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+          <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+          <meta name="referrer" content="no-referrer">
+          <meta name="robots" content="noindex">
+          <title>沓沓日花｜本次市集已結束</title>
+          <link rel="icon" href="favicon.svg" type="image/svg+xml">
+          <link rel="stylesheet" href="fonts.css?v=closed">
+          <link rel="stylesheet" href="styles.css?v=closed">
+          </head>
+          <body>
+          <main class="closed">
+            <b>沓沓日花 Chichi's flower</b>
+            <h1>本次市集已結束</h1>
+            <p>謝謝你來水交社找我們挑花。</p>
+            <p>下次市集見，也歡迎到 IG @chichis_flower 看看。</p>
+          </main>
+          </body>
+          </html>
+          HTML
+          git status --short
+
+      - name: 送出變更
+        if: env.SKIP != '1' && (github.event_name == 'schedule' || inputs.mode == 'close')
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "市集結束，網站換成結束頁" || { echo "已經是結束頁"; exit 0; }
+          git push
+
+      - name: 重新發布網站
+        if: env.SKIP != '1' && (github.event_name == 'schedule' || inputs.mode == 'close')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "已由推送觸發發布"
