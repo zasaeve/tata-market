@@ -10,52 +10,52 @@
 const W = "#F7F5EE";
 const FLOWERS = [
   // 主花
-  { id: "eryngium", name: "海膽紫薊", en: "Eryngium", cat: "主花", meaning: "獨立、堅強，溫柔地守護",
+  { id: "eryngium", name: "海膽紫薊", en: "Eryngium", cat: "主花", meaning: "讚賞",
     colors: [{ id: "blue", label: "藍紫", swatch: "#6F7FB0", price: 250, img: "images/eryngium.jpg" }] },        // 450/5支
-  { id: "thistle", name: "白色薊花", en: "White Thistle", cat: "主花", meaning: "高潔、獨立",
+  { id: "thistle", name: "白色薊花", en: "White Thistle", cat: "主花", meaning: "堅韌、力量、保護",
     colors: [{ id: "white", label: "白", swatch: "#E9ECE4", price: 250, img: "images/thistle-white.jpg" }] },                          // 450/5支
-  { id: "tulip", name: "白鬱金香", en: "White Tulip", cat: "主花", meaning: "純潔的愛、體貼",
+  { id: "tulip", name: "白鬱金香", en: "White Tulip", cat: "主花", meaning: "純潔的愛、寬恕、新的開始",
     colors: [{ id: "white", label: "白", swatch: W, price: 180, img: "images/tulip-white.jpg" }] },                                   // 500/10支
-  { id: "lisianthus", name: "白桔梗", en: "Lisianthus", cat: "主花", meaning: "純潔、真誠不變的愛",
+  { id: "lisianthus", name: "白桔梗", en: "Lisianthus", cat: "主花", meaning: "優美、希望",
     colors: [{ id: "white", label: "白", swatch: W, price: 100, img: "images/lisianthus-white.jpg" }] },           // 300/10支
-  { id: "gerbera", name: "小太陽", en: "Mini Gerbera", cat: "主花", meaning: "熱情、有朝氣，帶來好心情",
+  { id: "gerbera", name: "小太陽", en: "Mini Gerbera", cat: "主花", meaning: "希望、永遠向前、崇高之美",
     colors: [
       { id: "white", label: "白", swatch: W, price: 80, img: "images/gerbera-white.jpg" },                         // 150/10支
       { id: "pink", label: "粉", swatch: "#F2B4C2", price: 80, img: "images/gerbera-pink.jpg" },
       { id: "yellow", label: "黃", swatch: "#F1D35A", price: 80, img: "images/gerbera-yellow.jpg" }] },
-  { id: "anthurium", name: "大地火鶴", en: "Anthurium", cat: "主花", meaning: "熱情、大展宏圖",
+  { id: "anthurium", name: "大地火鶴", en: "Anthurium", cat: "主花", meaning: "熱情、關懷與祝福，凡事都好",
     colors: [{ id: "std", label: "珊瑚橘", swatch: "#E8907E", price: 80, img: "images/anthurium.jpg" }] },         // 15/支
-  { id: "pingpong", name: "乒乓菊", en: "Ping Pong Mum", cat: "主花", meaning: "圓滿、純真",
+  { id: "pingpong", name: "乒乓菊", en: "Ping Pong Mum", cat: "主花", meaning: "高潔、長壽、吉祥",
     colors: [{ id: "white", label: "白", swatch: "#F4F1E4", price: 80, img: "images/pingpong-white.jpg" }] },                            // 200/10支
-  { id: "mum", name: "染色小菊", en: "Dyed Daisy Mum", cat: "主花", meaning: "開朗、長久的祝福",
+  { id: "mum", name: "染色小菊", en: "Dyed Daisy Mum", cat: "主花", meaning: "高潔、清純的愛",
     colors: [{ id: "dyed", label: "染色", swatch: "#F3CFA0", price: 80, img: "images/mum-dyed.jpg" }] },           // 100/5支
-  { id: "scabiosa", name: "松蟲草", en: "Scabiosa", cat: "主花", meaning: "思念、不變的心",
+  { id: "scabiosa", name: "松蟲草", en: "Scabiosa", cat: "主花", meaning: "愛、純粹、體貼",
     colors: [{ id: "std", label: "當日色", swatch: "#6E1F2A", price: 80, img: "images/scabiosa.jpg" }] },                           // 200/10支
   // 玫瑰
-  { id: "bluerose", name: "藍玫瑰", en: "Blue Rose", cat: "玫瑰", meaning: "奇蹟、夢想成真",
+  { id: "bluerose", name: "藍玫瑰", en: "Blue Rose", cat: "玫瑰", meaning: "夢想成真、神秘",
     colors: [{ id: "blue", label: "藍", swatch: "#A5C6E4", price: 250, img: "images/rose-blue.jpg" }] },          // 800/10支
-  { id: "montmartre", name: "蒙馬特玫瑰", en: "Montmartre Rose", cat: "玫瑰", meaning: "浪漫、優雅的愛",
+  { id: "montmartre", name: "蒙馬特玫瑰", en: "Montmartre Rose", cat: "玫瑰", meaning: "魅力、一見鍾情",
     colors: [{ id: "std", label: "當日色", swatch: "#B98A97", price: 100, img: "images/rose-montmartre.jpg" }] },                           // 600/20支
-  { id: "pearl", name: "珍珠玫瑰", en: "Pearl Rose", cat: "玫瑰", meaning: "珍惜、純真的愛",
+  { id: "pearl", name: "珍珠玫瑰", en: "Pearl Rose", cat: "玫瑰", meaning: "溫柔、感激、欣賞",
     colors: [{ id: "std", label: "當日色", swatch: "#F6D3BE", price: 100, img: "images/rose-pearl.jpg" }] },                           // 350/20支
   // 配花
-  { id: "chamomile", name: "洋甘菊", en: "Chamomile", cat: "配花", meaning: "逆境中的力量、苦盡甘來",
+  { id: "chamomile", name: "洋甘菊", en: "Chamomile", cat: "配花", meaning: "逆境中的力量、療癒你",
     colors: [{ id: "white", label: "白", swatch: W, price: 250, img: "images/chamomile.jpg" }] },                 // 450/5支
-  { id: "spiraea", name: "雪柳", en: "Spiraea", cat: "配花", meaning: "溫柔、可愛",
+  { id: "spiraea", name: "雪柳", en: "Spiraea", cat: "配花", meaning: "可愛、努力不懈",
     colors: [{ id: "white", label: "白", swatch: "#EEF0E6", price: 60, img: "images/spiraea.jpg" }] },                           // 200/5支
-  { id: "waxflower", name: "白蠟梅", en: "Waxflower", cat: "配花", meaning: "持久的愛與成功",
+  { id: "waxflower", name: "白蠟梅", en: "Waxflower", cat: "配花", meaning: "永恆的愛、幸福的婚姻",
     colors: [{ id: "white", label: "白", swatch: "#F3E9EA", price: 100, img: "images/waxflower.jpg" }] },          // 300/10支
-  { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "值得讚美、充滿力量",
+  { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "讚美、堅強",
     colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 60, img: "images/fennel.jpg" }] },                         // 100/5支
-  { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "清新、自在",
+  { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "",
     colors: [{ id: "green", label: "綠", swatch: "#A9B98E", price: 60, img: "images/lycopodium.jpg" }] },                             // 180/10支
-  { id: "solidago", name: "麒麟草", en: "Solidago", cat: "配花", meaning: "吸引力、溫暖的陪伴",
+  { id: "solidago", name: "麒麟草", en: "Solidago", cat: "配花", meaning: "鼓勵",
     colors: [{ id: "yellow", label: "黃", swatch: "#C9D64A", price: 60, img: "images/solidago.jpg" }] },                         // 進價待補
-  { id: "spraymum", name: "小菊", en: "Spray Mum", cat: "配花", meaning: "開朗、真誠的祝福",
+  { id: "spraymum", name: "小菊", en: "Spray Mum", cat: "配花", meaning: "高潔、好心情、元氣",
     colors: [{ id: "pink", label: "粉紫", swatch: "#C58DBE", price: 60, img: "images/spraymum.jpg" }] },
-  { id: "limonium", name: "補血草", en: "Limonium", cat: "配花", meaning: "永不變的心",
+  { id: "limonium", name: "補血草", en: "Limonium", cat: "配花", meaning: "不變的心、不變的誓言、永不褪色的記憶",
     colors: [{ id: "purple", label: "紫", swatch: "#A396D6", price: 60, img: "images/limonium.jpg" }] },
-  { id: "gypsophila", name: "白滿天星", en: "Baby's Breath", cat: "配花", meaning: "純潔、真心喜歡",
+  { id: "gypsophila", name: "白滿天星", en: "Baby's Breath", cat: "配花", meaning: "純潔、長久的愛",
     colors: [{ id: "white", label: "白", swatch: W, price: 60, img: "images/gypsophila.jpg" }] }
 ];
 
@@ -171,7 +171,7 @@ function card(f, i) {
       el("span", { class: "idx", text: String(i + 1).padStart(2, "0") + " / " + CAT_EN[f.cat] }),
       el("h3", { class: "en", text: f.en }),
       el("p", { class: "zh", text: f.name }),
-      el("p", { class: "mean" }, el("span", { class: "tag", text: "花語" }), f.meaning),
+      f.meaning ? el("p", { class: "mean" }, el("span", { class: "tag", text: "花語" }), f.meaning) : null,
       tiles,
       el("div", { class: "buy" },
         el("p", { class: "price" }, el("span", { class: "num", text: fmt(c.price) }), el("small", { text: " / 支" })),
