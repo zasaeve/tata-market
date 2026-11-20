@@ -12,7 +12,7 @@ const FLOWERS = [
   // 主花
   { id: "eryngium", name: "海膽紫薊", en: "Eryngium", cat: "主花", meaning: "讚賞",
     colors: [{ id: "blue", label: "藍紫", swatch: "#6F7FB0", price: 250, img: "images/eryngium.jpg" }] },        // 450/5支
-  { id: "thistle", name: "白色薊花", en: "White Thistle", cat: "主花", meaning: "堅韌、力量、保護",
+  { id: "thistle", name: "白色刺芹", en: "White Eryngium", cat: "主花", meaning: "讚賞",
     colors: [{ id: "white", label: "白", swatch: "#E9ECE4", price: 250, img: "images/thistle-white.jpg" }] },                          // 450/5支
   { id: "tulip", name: "白鬱金香", en: "White Tulip", cat: "主花", meaning: "純潔的愛、寬恕、新的開始",
     colors: [{ id: "white", label: "白", swatch: W, price: 180, img: "images/tulip-white.jpg" }] },                                   // 500/10支
