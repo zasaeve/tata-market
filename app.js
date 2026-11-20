@@ -4,7 +4,7 @@
  */
 "use strict";
 
-/* 依 11/19 進貨（成本表「支出明細」）定價：60／80／100／180／250（單支進價約 15–20 → 80、30–40 → 100、50 → 180、80–90 → 250；鹿角草、麒麟草 60）。
+/* 依 11/19 進貨（成本表「支出明細」）定價：60／80／100／180／250（單支進價約 15–20 → 80、30–40 → 100、50 → 180、80–90 → 250；鹿角草、麒麟草、茴香、雪柳 60）。
  * img: null 代表還沒有實拍照，頁面會顯示「實拍照準備中」的色塊。
  * 補照片：把照片放進 images/ 資料夾，再把 null 改成 "images/檔名.jpg"。 */
 const W = "#F7F5EE";
@@ -44,17 +44,17 @@ const FLOWERS = [
   { id: "bletilla", name: "白芨花", en: "Bletilla", cat: "配花", meaning: "堅強、樸實的祝福",
     colors: [{ id: "white", label: "白", swatch: "#F1EEF2", price: 100, img: "images/bletilla-white.jpg" }] },                           // 200/5支
   { id: "spiraea", name: "雪柳", en: "Spiraea", cat: "配花", meaning: "溫柔、可愛",
-    colors: [{ id: "white", label: "白", swatch: "#EEF0E6", price: 100, img: "images/spiraea.jpg" }] },                           // 200/5支
+    colors: [{ id: "white", label: "白", swatch: "#EEF0E6", price: 60, img: "images/spiraea.jpg" }] },                           // 200/5支
   { id: "waxflower", name: "白蠟梅", en: "Waxflower", cat: "配花", meaning: "持久的愛與成功",
     colors: [{ id: "white", label: "白", swatch: "#F3E9EA", price: 100, img: "images/waxflower.jpg" }] },          // 300/10支
   { id: "oncidium", name: "豹紋文心蘭", en: "Leopard Oncidium", cat: "配花", meaning: "快樂無憂、隱藏的愛",
     colors: [{ id: "yellow", label: "豹紋", swatch: "#7B2A3B", price: 80, img: "images/oncidium.jpg" }] },          // 200/10支
   { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "值得讚美、充滿力量",
-    colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 80, img: "images/fennel.jpg" }] },                         // 100/5支
+    colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 60, img: "images/fennel.jpg" }] },                         // 100/5支
   { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "清新、自在",
     colors: [{ id: "green", label: "綠", swatch: "#A9B98E", price: 60, img: "images/lycopodium.jpg" }] },                             // 180/10支
   { id: "solidago", name: "麒麟草", en: "Solidago", cat: "配花", meaning: "吸引力、溫暖的陪伴",
-    colors: [{ id: "yellow", label: "黃", swatch: "#E3CF3E", price: 60, img: "images/solidago.jpg" }] }                         // 進價待補
+    colors: [{ id: "yellow", label: "黃", swatch: "#C9D64A", price: 60, img: "images/solidago.jpg" }] }                         // 進價待補
 ];
 
 /* 不是現場實拍的照片：頁面會在照片上標「示意圖」。
@@ -63,11 +63,9 @@ const FLOWERS = [
 const REF = {
   "images/thistle-white.jpg":   { by: "Bob Collowan", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Eryngium_giganteum,_Thames_Barrier_Park,_London.jpg" },
   "images/scabiosa.jpg": {},
-  "images/rose-montmartre.jpg": {},
   "images/bletilla-white.jpg": {},
   "images/spiraea.jpg": {},
   "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
-  "images/solidago.jpg":       { by: "Georg Slickers", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Solidago_canadensis_20050815_248.jpg" },
 };
 
 const CATS = ["全部", "主花", "玫瑰", "配花"];
