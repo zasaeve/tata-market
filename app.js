@@ -172,7 +172,7 @@ function card(f, i) {
       el("h3", { class: "en", text: f.en }),
       el("p", { class: "zh", text: f.name }),
       f.meaning ? el("p", { class: "mean" }, el("span", { class: "tag", text: "花語" }), f.meaning) : null,
-      tiles,
+      f.colors.length > 1 ? tiles : null,
       el("div", { class: "buy" },
         el("p", { class: "price" }, el("span", { class: "num", text: fmt(c.price) }), el("small", { text: " / 支" })),
         qtyBox)
@@ -246,8 +246,23 @@ function heroArch() {
   const imgs = shots.map((s, i) => el("img", { src: s.src, alt: i === 0 ? "今日花材：" + s.alt : "", class: i === 0 ? "on" : null, loading: i < 2 ? "eager" : "lazy" }));
   box.replaceChildren(...imgs);
   if (imgs.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  let n = 0;
-  setInterval(() => { imgs[n].classList.remove("on"); n = (n + 1) % imgs.length; imgs[n].classList.add("on"); }, 3200);
+  let n = 0, timer = 0, seen = true;
+  const step = () => { imgs[n].classList.remove("on"); n = (n + 1) % imgs.length; imgs[n].classList.add("on"); };
+  // 省電：拱門不在畫面上、或手機切到別的 App / 關螢幕時，輪播就停下來
+  const sync = () => {
+    const run = seen && !document.hidden;
+    if (run && !timer) timer = setInterval(step, 3200);
+    if (!run && timer) { clearInterval(timer); timer = 0; }
+  };
+  new IntersectionObserver(([e]) => { seen = e.isIntersecting; sync(); }).observe(box);
+  document.addEventListener("visibilitychange", sync);
+  sync();
+}
+
+/* 省電：首屏大字、跑馬燈離開畫面就暫停動畫 */
+function pauseOffscreen() {
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle("off", !e.isIntersecting)));
+  document.querySelectorAll(".hero, .ticker").forEach(n => io.observe(n));
 }
 
 function renderCredits() {
@@ -266,6 +281,7 @@ function init() {
   renderCredits();
   loadCart();
   heroArch();
+  pauseOffscreen();
   renderFilters();
   renderGrid();
   renderTotals(false);
@@ -275,8 +291,8 @@ function init() {
   document.getElementById("doneList").addEventListener("click", () => dlg.close());
   dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
   document.getElementById("clearAll").addEventListener("click", () => {
-    if (!window.confirm("確定要清空所有已選的花嗎？")) return;
     cart.clear(); saveCart(); renderGrid(); renderTotals(false); renderLines();
+    dlg.close();
   });
 }
 
