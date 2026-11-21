@@ -87,6 +87,9 @@ const MAX_QTY = 99;
 const STORE_KEY = "tata-market-cart-v1";
 
 /* ---------- 資料凍結：頁面執行時無法被竄改 ---------- */
+/* 依價格由低到高排列（同價格維持上面的順序），編號也跟著這個順序 */
+const minPrice = f => Math.min(...f.colors.map(c => c.price));
+FLOWERS.sort((a, b) => minPrice(a) - minPrice(b));
 FLOWERS.forEach(f => { f.colors.forEach(Object.freeze); Object.freeze(f.colors); Object.freeze(f); });
 Object.freeze(FLOWERS);
 Object.values(REF).forEach(Object.freeze); Object.freeze(REF);
