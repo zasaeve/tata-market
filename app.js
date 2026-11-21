@@ -4,7 +4,7 @@
  */
 "use strict";
 
-/* 依 11/19 進貨（成本表「支出明細」）定價：60／80／100／180／250（單支進價約 15–20 → 80、30–40 → 100、50 → 180、80–90 → 250；鹿角草、麒麟草、茴香、雪柳、小菊、補血草、白滿天星 60）。
+/* 依 11/19 進貨（成本表「支出明細」）定價：60／80／100／180／250（單支進價約 15–20 → 80、30–40 → 100、50–60 → 180、80–90 → 250；鹿角草、麒麟草、茴香、雪柳、小菊、補血草、白滿天星 60）。
  * img: null 代表還沒有實拍照，頁面會顯示「實拍照準備中」的色塊。
  * 補照片：把照片放進 images/ 資料夾，再把 null 改成 "images/檔名.jpg"。 */
 const W = "#F7F5EE";
@@ -18,6 +18,10 @@ const FLOWERS = [
     colors: [{ id: "white", label: "白", swatch: W, price: 180, img: "images/tulip-white.jpg" }] },                                   // 500/10支
   { id: "lisianthus", name: "白桔梗", en: "Lisianthus", cat: "主花", meaning: "優美、希望",
     colors: [{ id: "white", label: "白", swatch: W, price: 100, img: "images/lisianthus-white.jpg" }] },           // 300/10支
+  { id: "iris", name: "鳶尾花", en: "Iris", cat: "主花", meaning: "希望、智慧、勇氣",
+    colors: [{ id: "blue", label: "藍紫", swatch: "#4B5FB0", price: 180, img: null }] },          // 300/5支
+  { id: "lisianthus-purple", name: "紫桔梗", en: "Purple Lisianthus", cat: "主花", meaning: "優美、希望",
+    colors: [{ id: "purple", label: "紫", swatch: "#6B2E8E", price: 100, img: null }] },          // 350/10支
   { id: "gerbera", name: "小太陽", en: "Mini Gerbera", cat: "主花", meaning: "希望、永遠向前、崇高之美",
     colors: [
       { id: "white", label: "白", swatch: W, price: 80, img: "images/gerbera-white.jpg" },                         // 150/10支
@@ -45,6 +49,10 @@ const FLOWERS = [
     colors: [{ id: "white", label: "白", swatch: "#EEF0E6", price: 60, img: "images/spiraea.jpg" }] },                           // 200/5支
   { id: "waxflower", name: "白蠟梅", en: "Waxflower", cat: "配花", meaning: "永恆的愛、幸福的婚姻",
     colors: [{ id: "white", label: "白", swatch: "#F3E9EA", price: 100, img: "images/waxflower.jpg" }] },          // 300/10支
+  { id: "sharry", name: "香水文心蘭", en: "Sharry Baby Oncidium", cat: "配花", meaning: "愛與才能",
+    colors: [{ id: "red", label: "酒紅", swatch: "#7A2A35", price: 80, img: null }] },          // 200/10支
+  { id: "ornithogalum", name: "伯利恆之星", en: "Star of Bethlehem", cat: "配花", meaning: "純潔、希望、誠實",
+    colors: [{ id: "white", label: "白", swatch: W, price: 100, img: null }] },          // 200/5支
   { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "讚美、堅強",
     colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 60, img: "images/fennel.jpg" }] },                         // 100/5支
   { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "",
