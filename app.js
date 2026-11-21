@@ -52,7 +52,7 @@ const FLOWERS = [
   { id: "sharry", name: "香水文心蘭", en: "Sharry Baby Oncidium", cat: "配花", meaning: "愛與才能",
     colors: [{ id: "red", label: "豹紋", swatch: "#7B2A3B", price: 80, img: "images/sharry.jpg" }] },          // 200/10支
   { id: "ornithogalum", name: "伯利恆之星", en: "Star of Bethlehem", cat: "配花", meaning: "純潔、希望、誠實",
-    colors: [{ id: "white", label: "白", swatch: "#E6ECD6", price: 100, img: "images/ornithogalum.jpg" }] },          // 200/5支
+    colors: [{ id: "white", label: "白", swatch: "#E6ECD6", price: 120, img: "images/ornithogalum.jpg" }] },          // 200/5支
   { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "讚美、堅強",
     colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 60, img: "images/fennel.jpg" }] },                         // 100/5支
   { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "",
