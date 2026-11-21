@@ -19,9 +19,9 @@ const FLOWERS = [
   { id: "lisianthus", name: "白桔梗", en: "Lisianthus", cat: "主花", meaning: "優美、希望",
     colors: [{ id: "white", label: "白", swatch: W, price: 80, img: "images/lisianthus-white.jpg" }] },           // 300/10支
   { id: "lisianthus-mini", name: "小夏桔梗", en: "Mini Lisianthus", cat: "主花", meaning: "優美、希望",
-    colors: [{ id: "std", label: "當日色", swatch: "#EFEAF2", price: 80, img: "images/lisianthus-mini.jpg" }] },          // 進價待補
+    colors: [{ id: "std", label: "粉橘", swatch: "#F2BFAE", price: 80, img: "images/lisianthus-mini.jpg" }] },          // 進價待補
   { id: "sweetpea", name: "香豌豆", en: "Sweet Pea", cat: "主花", meaning: "啟程、溫柔的回憶、淡淡的喜悅",
-    colors: [{ id: "std", label: "當日色", swatch: "#F1C7DA", price: 100, img: "images/sweetpea.jpg" }] },          // 進價待補
+    colors: [{ id: "std", label: "粉白", swatch: "#F4E6EC", price: 100, img: "images/sweetpea.jpg" }] },          // 進價待補
   { id: "iris", name: "鳶尾花", en: "Iris", cat: "主花", meaning: "希望、智慧、勇氣",
     colors: [{ id: "blue", label: "淡紫", swatch: "#9C95D8", price: 180, img: "images/iris.jpg" }] },          // 300/5支
   { id: "gerbera", name: "小太陽", en: "Mini Gerbera", cat: "主花", meaning: "希望、永遠向前、崇高之美",
@@ -47,14 +47,12 @@ const FLOWERS = [
     colors: [{ id: "white", label: "白", swatch: W, price: 80, img: "images/chamomile.jpg" }] },                 // 450/5支
   { id: "spiraea", name: "雪柳", en: "Spiraea", cat: "配花", meaning: "可愛、努力不懈",
     colors: [{ id: "white", label: "白", swatch: "#EEF0E6", price: 60, img: "images/spiraea.jpg" }] },                           // 200/5支
-  { id: "sharry", name: "香水文心蘭", en: "Sharry Baby Oncidium", cat: "配花", meaning: "愛與才能",
-    colors: [{ id: "red", label: "豹紋", swatch: "#7B2A3B", price: 80, img: "images/sharry.jpg" }] },          // 200/10支
   { id: "oncidium", name: "豹紋文心蘭", en: "Leopard Oncidium", cat: "配花", meaning: "愛與才能",
     colors: [{ id: "leopard", label: "豹紋", swatch: "#7B2A3B", price: 80, img: "images/oncidium.jpg" }] },          // 200/10支
   { id: "bletilla", name: "白芨", en: "Bletilla", cat: "配花", meaning: "",
     colors: [{ id: "white", label: "白", swatch: "#F1EEF2", price: 100, img: "images/bletilla-white.jpg" }] },          // 進價待補
-  { id: "aster", name: "孔雀花", en: "Aster", cat: "配花", meaning: "優雅、精緻、新的開始",
-    colors: [{ id: "std", label: "當日色", swatch: "#EDE6F2", price: 60, img: "images/aster.jpg" }] },          // 進價待補
+  { id: "aster", name: "孔雀紫苑", en: "Aster", cat: "配花", meaning: "優雅、精緻、新的開始",
+    colors: [{ id: "std", label: "紫紅", swatch: "#D46FC8", price: 60, img: "images/aster.jpg" }] },          // 進價待補
   { id: "ornithogalum", name: "伯利恆之星", en: "Star of Bethlehem", cat: "配花", meaning: "純潔、希望、誠實",
     colors: [{ id: "white", label: "白", swatch: "#E6ECD6", price: 120, img: "images/ornithogalum.jpg" }] },          // 200/5支
   { id: "fennel", name: "茴香", en: "Fennel Flower", cat: "配花", meaning: "讚美、堅強",
@@ -73,10 +71,9 @@ const FLOWERS = [
  * 有 url 的是 Wikimedia Commons 開放授權照片，頁尾會列出作者與授權；{} 是攤主提供的參考照。
  * 換成實拍照時，把這裡那一行刪掉即可。 */
 const REF = {
+  "images/aster.jpg": {},
+  "images/sweetpea.jpg": {},
   "images/bletilla-white.jpg": {},
-  "images/lisianthus-mini.jpg":  { by: "Wasir kasab", lic: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Lisianthus_2025.2.jpg" },
-  "images/sweetpea.jpg":         { by: "Acabashi", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:%27Lathyrus_odoratus%27_pink_and_white_Sweet_pea_in_Walled_Garden_of_Parham_House,_West_Sussex,_England.jpg" },
-  "images/aster.jpg":            { by: "Patrick Alexander", lic: "CC0", url: "https://commons.wikimedia.org/wiki/File:Symphyotrichum_ericoides_-cropped.jpg" },
   "images/ornithogalum.jpg": {},
   "images/thistle-white.jpg":   { by: "Bob Collowan", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Eryngium_giganteum,_Thames_Barrier_Park,_London.jpg" },
   "images/scabiosa.jpg": {},
