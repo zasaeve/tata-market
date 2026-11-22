@@ -9,6 +9,11 @@
  * 補照片：把照片放進 images/ 資料夾，再把 null 改成 "images/檔名.jpg"。 */
 const W = "#F7F5EE";
 const FLOWERS = [
+  /* 現場彈性價：沒有列在網頁上的花，或依花況調整，現場選 40／60／80 */
+  { id: "onsite", name: "現場花材", en: "Market Pick", cat: "配花", meaning: "", note: "依現場花況選價格",
+    colors: [{ id: "p40", label: "40 元", swatch: "#E8E2D2", price: 40, img: null },
+             { id: "p60", label: "60 元", swatch: "#D9CFB4", price: 60, img: null },
+             { id: "p80", label: "80 元", swatch: "#C7B98F", price: 80, img: null }] },
   // 主花
   { id: "eryngium", name: "海膽紫薊", en: "Eryngium", cat: "主花", meaning: "讚賞",
     colors: [{ id: "blue", label: "藍紫", swatch: "#6F7FB0", price: 250, img: "images/eryngium.jpg" }] },        // 450/5支
@@ -154,8 +159,9 @@ function renderFilters() {
 /* ---------- 卡片 ---------- */
 function photo(f, c) {
   if (c.img) return el("img", { src: c.img, alt: f.name + "（" + c.label + "）" + (REF[c.img] ? "示意圖" : "實拍"), loading: "lazy", decoding: "async", width: "675", height: "900" });
-  const box = el("div", { class: "noimg", role: "img", "aria-label": f.name + "，實拍照準備中" },
-    el("span", { class: "noimg-n", text: f.name }), el("span", { class: "noimg-t", text: "實拍照準備中" }));
+  const note = f.note || "實拍照準備中";
+  const box = el("div", { class: "noimg", role: "img", "aria-label": f.name + "，" + note },
+    el("span", { class: "noimg-n", text: f.name }), el("span", { class: "noimg-t", text: note }));
   box.style.background = c.swatch;   // CSSOM 設定，不需 inline style 權限
   return box;
 }
