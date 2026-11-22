@@ -59,6 +59,8 @@ const FLOWERS = [
     colors: [{ id: "yellow", label: "黃綠", swatch: "#C9C94A", price: 60, img: "images/fennel.jpg" }] },                         // 100/5支
   { id: "bidens", name: "鹿角草", en: "Antler Fern", cat: "配花", meaning: "",
     colors: [{ id: "green", label: "綠", swatch: "#A9B98E", price: 60, img: "images/lycopodium.jpg" }] },                             // 180/10支
+  { id: "asparagus", name: "蓬萊松", en: "Asparagus Fern", cat: "配花", meaning: "不變、勝利",
+    colors: [{ id: "green", label: "綠", swatch: "#8CC63F", price: 60, img: "images/asparagus.jpg" }] },          // 進價待補
   { id: "spraymum", name: "小菊", en: "Spray Mum", cat: "配花", meaning: "高潔、好心情、元氣",
     colors: [{ id: "pink", label: "粉紫", swatch: "#C58DBE", price: 60, img: "images/spraymum.jpg" }] },
   { id: "limonium", name: "卡斯比亞", en: "Caspia", cat: "配花", meaning: "不變的心、不變的誓言、永不褪色的記憶",
@@ -71,6 +73,7 @@ const FLOWERS = [
  * 有 url 的是 Wikimedia Commons 開放授權照片，頁尾會列出作者與授權；{} 是攤主提供的參考照。
  * 換成實拍照時，把這裡那一行刪掉即可。 */
 const REF = {
+  "images/asparagus.jpg": {},
   "images/aster.jpg": {},
   "images/sweetpea.jpg": {},
   "images/bletilla-white.jpg": {},
