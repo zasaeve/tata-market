@@ -3,20 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<!-- 安全設定：只允許載入本站自己的檔案（含字型），不連任何外部網址、不送出任何資料 -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="no-referrer">
-<meta name="robots" content="noindex">
-<title>沓沓日花｜本次市集已結束</title>
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F7F5EE">
+<meta name="description" content="沓沓日花 Chichi's flower｜珈琲與花物語・南迴篇 台南水交社 單支花材零售價目，挑選後即時試算總價。">
+<title>沓沓日花｜水交社花材價目</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="fonts.css?v=closed">
-<link rel="stylesheet" href="styles.css?v=closed">
+<link rel="stylesheet" href="fonts.css?v=fe07f69f">
+<link rel="stylesheet" href="styles.css?v=fe07f69f">
+<script src="app.js?v=fe07f69f" defer></script>
 </head>
 <body>
-<main class="closed">
-  <b>沓沓日花 Chichi's flower</b>
-  <h1>本次市集已結束</h1>
-  <p>謝謝你來水交社找我們挑花。</p>
-  <p>下次市集見，也歡迎到 IG @chichis_flower 看看。</p>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>沓沓日花</b><span>CHICHI'S FLOWER</span></a>
+    <span class="pill">11.20 — 11.22</span>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="giant one" aria-hidden="true"><div>一支一支挑　一支一支挑　一支一支挑</div></div>
+  <div class="giant two" aria-hidden="true"><div>STEM BY STEM · STEM BY STEM · STEM BY STEM</div></div>
+  <div class="hero-arch">
+    <div class="arch" id="heroArch"></div>
+    <span class="arch-tag">Have a flower day</span>
+  </div>
+  <div class="copy">
+    <div class="pairing">水交社 <span>×</span> 花材</div>
+    <p>珈琲與花物語・南迴篇<br>11/20（五）– 11/22（日）12:00–18:00<br>台南水交社文化園區・戶外場域</p>
+    <a class="cta" href="#menu">開始挑花 <i aria-hidden="true">→</i></a>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div>COFFEE &amp; FLOWER STORY · 11.20 — 11.22 · 12:00 — 18:00 · SHUIJIAOSHE TAINAN · STEM BY STEM · COFFEE &amp; FLOWER STORY · 11.20 — 11.22 · 12:00 — 18:00 · SHUIJIAOSHE TAINAN · STEM BY STEM ·&nbsp;</div></div>
+
+<main class="wrap sec" id="menu">
+  <div class="sec-h">
+    <div>
+      <span class="kicker">FLOWERS BY THE STEM</span>
+      <h2>今天的花材，一支一支挑。</h2>
+    </div>
+    <nav class="tabs" aria-label="花材分類" id="filters"></nav>
+  </div>
+  <p class="howto">點選顏色、按「＋」加支數，右下角會自動算好總價。挑好後把清單拿給攤主看就可以結帳。</p>
+  <ul class="grid" id="grid" aria-live="polite"></ul>
+  <p class="fine">價格為單支零售價，花材依當日到貨為準，若與現場標示不同，以現場標示為準。<br>付款方式：現金、LINE Pay。本頁只在你的手機上試算，不會收集或傳送任何個人資料。</p>
 </main>
+
+<footer class="ft">
+  <div class="wrap"><b>沓沓日花 Chichi's flower</b><span>沓沓仔慢慢來・日花是灑落如光的日常</span><span>IG @chichis_flower</span></div>
+  <div class="wrap credits" id="credits" hidden><p>標「示意圖」的照片不是現場花材，僅供參考，實際以當日花材為準。照片來自 Wikimedia Commons：</p><ul></ul></div>
+</footer>
+
+<button type="button" class="cartpill" id="openList" aria-label="查看我挑的花">
+  <span class="ic" aria-hidden="true">✿<span id="pillCount">0</span></span>
+  <span class="pt"><small>MY FLOWERS</small><b class="num" id="sumTotal">NT$ 0</b></span>
+</button>
+
+<dialog id="list" class="drawer" aria-labelledby="listTitle">
+  <div class="sheet">
+    <div class="sheet-head">
+      <div><span class="kicker">MY FLOWERS</span><h3 id="listTitle">我挑的花</h3></div>
+      <button type="button" class="round" id="closeList" aria-label="關閉清單">×</button>
+    </div>
+    <p class="empty" id="emptyNote">還沒有選花，按花卡上的「＋」開始挑。</p>
+    <ul class="lines" id="lines"></ul>
+    <div class="sum total"><span id="listCount"></span><b class="num" id="listTotal"></b></div>
+    <p class="sheet-note">請把這個畫面給攤主看，現金或 LINE Pay 結帳。</p>
+    <div class="sheet-act">
+      <button type="button" class="btn ghost" id="clearAll">全部清空</button>
+      <button type="button" class="btn" id="doneList">繼續挑花</button>
+    </div>
+  </div>
+</dialog>
 </body>
 </html>
