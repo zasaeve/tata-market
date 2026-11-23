@@ -89,8 +89,9 @@ const REF = {
   "images/fennel.jpg":          { by: "Harry Rose", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Foeniculum_vulgare_flowerhead1_(14193699868).jpg" },
 };
 
-/* 市集結束後關閉：超過這個時間（台灣時間），頁面只顯示「已結束」 */
-const CLOSE_AT = Date.parse("2026-11-22T19:00:00+08:00");
+/* 市集結束後關閉：設定時間（台灣時間）後頁面只顯示「已結束」。null 代表不關閉。
+ * 例：const CLOSE_AT = Date.parse("2026-12-20T19:00:00+08:00"); */
+const CLOSE_AT = null;
 
 const CATS = ["全部", "主花", "玫瑰", "配花"];
 const MAX_QTY = 99;
@@ -315,7 +316,7 @@ function showClosed() {
   try { localStorage.removeItem(STORE_KEY); } catch (e) { /* 無痕模式等情況忽略 */ }
 }
 
-function isClosed() { return Date.now() >= CLOSE_AT; }
+function isClosed() { return CLOSE_AT !== null && Date.now() >= CLOSE_AT; }
 
 function init() {
   if (isClosed()) return showClosed();

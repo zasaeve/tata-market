@@ -4,8 +4,8 @@
 name: 市集結束自動下架
 
 on:
-  schedule:
-    - cron: "0 11 22 11 *"
+  # 市集已結束，排程已移除；需要下架時到 Actions 手動執行（mode 選 close）。
+  # 要再排程，加回 schedule，並同時修改下面「確認時間」的日期範圍。
   workflow_dispatch:
     inputs:
       mode:

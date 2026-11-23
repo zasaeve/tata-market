@@ -31,8 +31,8 @@
 
 ## 市集結束自動關閉
 
-- `app.js` 的 `CLOSE_AT`（目前是台灣時間 2026/11/22 19:00）：時間一到，頁面只顯示「本次市集已結束」，並清掉手機上的購物清單。
-- `.github/workflows/close-site.yml`：GitHub 會在同一時間自動把網站換成結束頁，並刪除花材資料與照片（排程可能延遲幾分鐘到一小時）。
+- `app.js` 的 `CLOSE_AT`（目前是 `null`，不會自動關閉）：時間一到，頁面只顯示「本次市集已結束」，並清掉手機上的購物清單。
+- `.github/workflows/close-site.yml`：目前只能手動執行，會把網站換成結束頁並刪除花材資料與照片。GitHub 排程可能延遲好幾小時，若要定時下架，請以 `CLOSE_AT` 為準。
 - 要提早手動下架：GitHub repo → Actions → 市集結束自動下架 → Run workflow，mode 選 `close`。
 - 要延後：同時改 `CLOSE_AT` 和 workflow 裡的 cron 與時間判斷。
 

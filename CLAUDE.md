@@ -72,7 +72,7 @@
 
 ## 關閉時間
 
-- `app.js` 的 `CLOSE_AT` 和 `.github/workflows/close-site.yml` 設定台灣時間 2026/11/22 19:00 關站。
+- `app.js` 的 `CLOSE_AT` 目前是 `null`（不關站）；`.github/workflows/close-site.yml` 只保留手動執行。
 - 攤主沒有要求就不要改。要延後或提早時，兩邊都要一起改，包括 workflow 的 cron 和時間判斷。
 
 ## 做完之前的檢查
