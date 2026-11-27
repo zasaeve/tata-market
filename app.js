@@ -16,7 +16,7 @@ const FLOWERS = [
              { id: "p80", label: "80 元", swatch: "#C7B98F", price: 80, img: null }] },
   // 主花
   { id: "carnation", name: "大康乃馨", en: "Carnation", cat: "主花", meaning: "純真而深刻的愛",
-    colors: [{ id: "std", label: "當日色", swatch: "#D9435A", price: 80, img: "images/carnation.jpg" }] },          // 380/20支
+    colors: [{ id: "std", label: "當日色", swatch: "#F3EED8", price: 80, img: "images/carnation.jpg" }] },          // 380/20支
   { id: "lisianthus", name: "桔梗", en: "Lisianthus", cat: "主花", meaning: "優美、希望",
     colors: [
       { id: "white", label: "白", swatch: W, price: 80, img: "images/lisianthus-white.jpg" },          // 200/10支
@@ -32,7 +32,7 @@ const FLOWERS = [
     colors: [{ id: "blue", label: "藍紫", swatch: "#6F7FB0", price: 180, img: "images/eryngium.jpg" }] },          // 200/5支
   // 配花・葉材
   { id: "dianthus-green", name: "綠石竹", en: "Green Dianthus", cat: "配花", meaning: "愛、熱情、欣賞",
-    colors: [{ id: "green", label: "綠", swatch: "#9BC25A", price: 80, img: null }] },          // 100/5支
+    colors: [{ id: "green", label: "綠", swatch: "#9BC25A", price: 80, img: "images/dianthus-green.jpg" }] },          // 100/5支
   { id: "oncidium", name: "文心蘭", en: "Oncidium", cat: "配花", meaning: "愛與才能",
     colors: [{ id: "yellow", label: "黃", swatch: "#EBD31A", price: 80, img: "images/oncidium.jpg" }] },          // 180/10支
   { id: "limonium", name: "卡斯比亞", en: "Caspia", cat: "配花", meaning: "不變的心、不變的誓言、永不褪色的記憶",
@@ -54,9 +54,9 @@ const FLOWERS = [
  * 換成實拍照時，把這裡那一行刪掉即可。 */
 const REF = {
   "images/lisianthus-purple.jpg": {},
-  "images/carnation.jpg":   { by: "Rashid Jorvee", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Red_Carnations_flower.jpg" },
+  "images/dianthus-green.jpg": {},
+  "images/pittosporum.jpg": {},
   "images/moluccella.jpg":  { by: "Agnieszka Kwiecień, Nova", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Moluccella_laevis_Molukia_g%C5%82adka_2020-09-20_01.jpg" },
-  "images/pittosporum.jpg": { by: "Grapeman4", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Pittosporum_tenuifolium_foliage.jpg" },
   "images/cedar.jpg":       { by: "Saadkhan12345", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Cedrus_Deodara_leaves_222.jpg" }
 };
 
