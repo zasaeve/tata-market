@@ -57,7 +57,7 @@ const REF = {
   "images/dianthus-green.jpg": {},
   "images/pittosporum.jpg": {},
   "images/moluccella.jpg":  { by: "Agnieszka Kwiecień, Nova", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Moluccella_laevis_Molukia_g%C5%82adka_2020-09-20_01.jpg" },
-  "images/cedar.jpg":       { by: "Saadkhan12345", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Cedrus_Deodara_leaves_222.jpg" }
+  "images/cedar.jpg": {},
 };
 
 /* 市集結束後關閉：設定時間（台灣時間）後頁面只顯示「已結束」。null 代表不關閉。
