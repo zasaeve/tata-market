@@ -17,28 +17,24 @@ const FLOWERS = [
   // 主花
   { id: "carnation", name: "大康乃馨", en: "Carnation", cat: "主花", meaning: "純真而深刻的愛",
     colors: [{ id: "std", label: "當日色", swatch: "#D9435A", price: 80, img: "images/carnation.jpg" }] },          // 380/20支
-  { id: "lisianthus", name: "白桔梗", en: "Lisianthus", cat: "主花", meaning: "優美、希望",
-    colors: [{ id: "white", label: "白", swatch: W, price: 80, img: "images/lisianthus-white.jpg" }] },          // 200/10支
-  { id: "lisianthus-pink", name: "粉桔梗", en: "Pink Lisianthus", cat: "主花", meaning: "優美、希望",
-    colors: [{ id: "pink", label: "粉", swatch: "#F2BFAE", price: 100, img: "images/lisianthus-mini.jpg" }] },          // 280/10支
-  { id: "lisianthus-lilac", name: "淺紫桔梗", en: "Lilac Lisianthus", cat: "主花", meaning: "優美、希望",
-    colors: [{ id: "lilac", label: "淺紫", swatch: "#B9A2DE", price: 80, img: "images/lisianthus-purple.jpg" }] },          // 200/10支
+  { id: "lisianthus", name: "桔梗", en: "Lisianthus", cat: "主花", meaning: "優美、希望",
+    colors: [
+      { id: "white", label: "白", swatch: W, price: 80, img: "images/lisianthus-white.jpg" },          // 200/10支
+      { id: "pink", label: "粉", swatch: "#F2BFAE", price: 80, img: "images/lisianthus-mini.jpg" },          // 280/10支
+      { id: "lilac", label: "淺紫", swatch: "#B9A2DE", price: 80, img: "images/lisianthus-purple.jpg" }] },          // 200/10支
   { id: "pingpong", name: "白乒乓菊", en: "Ping Pong Mum", cat: "主花", meaning: "高潔、長壽、吉祥",
     colors: [{ id: "white", label: "白", swatch: "#F4F1E4", price: 80, img: "images/pingpong-white.jpg" }] },          // 150/10支
   { id: "gerbera", name: "小太陽", en: "Gerbera", cat: "主花", meaning: "希望、永遠向前、崇高之美",
     colors: [
       { id: "white", label: "白", swatch: W, price: 60, img: "images/gerbera-white.jpg" },          // 80/10支
-      { id: "pink", label: "粉", swatch: "#F2B4C2", price: 60, img: "images/gerbera-pink.jpg" },
-      { id: "yellow", label: "黃", swatch: "#F1D35A", price: 60, img: "images/gerbera-yellow.jpg" }] },
-  { id: "mini-gerbera", name: "迷你太陽", en: "Mini Gerbera", cat: "主花", meaning: "希望、永遠向前、崇高之美",
-    colors: [{ id: "std", label: "當日色", swatch: "#F2B4C2", price: 60, img: "images/mini-gerbera.jpg" }] },          // 100/10支
+      { id: "pink", label: "粉", swatch: "#F2B4C2", price: 60, img: "images/gerbera-pink.jpg" }] },          // 100/10支（迷你太陽）
   { id: "eryngium", name: "海膽紫薊", en: "Eryngium", cat: "主花", meaning: "讚賞",
-    colors: [{ id: "blue", label: "藍紫", swatch: "#6F7FB0", price: 120, img: "images/eryngium.jpg" }] },          // 200/5支
+    colors: [{ id: "blue", label: "藍紫", swatch: "#6F7FB0", price: 180, img: "images/eryngium.jpg" }] },          // 200/5支
   // 配花・葉材
   { id: "dianthus-green", name: "綠石竹", en: "Green Dianthus", cat: "配花", meaning: "愛、熱情、欣賞",
     colors: [{ id: "green", label: "綠", swatch: "#9BC25A", price: 80, img: null }] },          // 100/5支
-  { id: "oncidium", name: "豹紋文心蘭", en: "Leopard Oncidium", cat: "配花", meaning: "愛與才能",
-    colors: [{ id: "leopard", label: "豹紋", swatch: "#7B2A3B", price: 80, img: "images/oncidium.jpg" }] },          // 180/10支
+  { id: "oncidium", name: "文心蘭", en: "Oncidium", cat: "配花", meaning: "愛與才能",
+    colors: [{ id: "yellow", label: "黃", swatch: "#EBD31A", price: 80, img: "images/oncidium.jpg" }] },          // 180/10支
   { id: "limonium", name: "卡斯比亞", en: "Caspia", cat: "配花", meaning: "不變的心、不變的誓言、永不褪色的記憶",
     colors: [{ id: "purple", label: "紫", swatch: "#A396D6", price: 80, img: "images/limonium.jpg" }] },          // 170/10支
   { id: "gypsophila", name: "小滿天星", en: "Baby's Breath", cat: "配花", meaning: "純潔、長久的愛",
@@ -58,7 +54,6 @@ const FLOWERS = [
  * 換成實拍照時，把這裡那一行刪掉即可。 */
 const REF = {
   "images/lisianthus-purple.jpg": {},
-  "images/mini-gerbera.jpg": {},
   "images/carnation.jpg":   { by: "Rashid Jorvee", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Red_Carnations_flower.jpg" },
   "images/moluccella.jpg":  { by: "Agnieszka Kwiecień, Nova", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Moluccella_laevis_Molukia_g%C5%82adka_2020-09-20_01.jpg" },
   "images/pittosporum.jpg": { by: "Grapeman4", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Pittosporum_tenuifolium_foliage.jpg" },
