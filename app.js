@@ -25,9 +25,9 @@ const FLOWERS = [
       { id: "purple", label: "紫", swatch: "#9C84D0", price: 40, img: "images/lisianthus-purple.jpg" },          // 360/20支（11/27）
       { id: "lilac", label: "淺紫", swatch: "#B9A2DE", price: 40, img: "images/lisianthus-purple.jpg" }] },          // 200/10支（11/26）
   { id: "calla", name: "海芋", en: "Calla Lily", cat: "主花", meaning: "華麗之美、清純",
-    colors: [{ id: "white", label: "白", swatch: "#F4F2E8", price: 100, img: null }] },          // 300/10支
+    colors: [{ id: "white", label: "白", swatch: "#F4F2E8", price: 100, img: "images/calla-white.jpg" }] },          // 300/10支
   { id: "mum", name: "牡丹菊", en: "Chrysanthemum", cat: "主花", meaning: "高潔",
-    colors: [{ id: "orange", label: "橘", swatch: "#E98A3A", price: 180, img: null }] },          // 300/5支
+    colors: [{ id: "orange", label: "橘", swatch: "#E98A3A", price: 180, img: "images/mum-orange.jpg" }] },          // 300/5支
   { id: "pingpong", name: "白乒乓菊", en: "Ping Pong Mum", cat: "主花", meaning: "高潔、長壽、吉祥",
     colors: [{ id: "white", label: "白", swatch: "#F4F1E4", price: 80, img: "images/pingpong-white.jpg" }] },          // 150/10支
   { id: "gerbera", name: "小太陽", en: "Gerbera", cat: "主花", meaning: "希望、永遠向前、崇高之美",
@@ -46,8 +46,8 @@ const FLOWERS = [
   { id: "gypsophila", name: "滿天星", en: "Baby's Breath", cat: "配花", meaning: "純潔、長久的愛",
     colors: [{ id: "white", label: "白", swatch: W, price: 80, img: "images/gypsophila.jpg" }] },          // 小滿天星 230/10支（11/26）、滿天星 500/20支（11/27）
   { id: "statice", name: "星辰花", en: "Statice", cat: "配花", meaning: "不變的心、永不褪色的記憶",
-    colors: [{ id: "pink", label: "粉", swatch: "#E7A8C4", price: 100, img: null },
-             { id: "white", label: "白", swatch: W, price: 100, img: null }] },          // 200/5支
+    colors: [{ id: "white", label: "白", swatch: W, price: 100, img: "images/statice-white.jpg" },
+             { id: "pink", label: "粉", swatch: "#E7A8C4", price: 100, img: null }] },          // 200/5支
   { id: "bletilla", name: "白芨", en: "Bletilla", cat: "配花", meaning: "",
     colors: [{ id: "white", label: "白", swatch: "#F1EEF2", price: 100, img: "images/bletilla-white.jpg" }] },          // 200/5支
   { id: "aster", name: "孔雀紫苑", en: "Aster", cat: "配花", meaning: "優雅、精緻、新的開始",
@@ -68,6 +68,9 @@ const FLOWERS = [
 const REF = {
   "images/lisianthus-purple.jpg": {},
   "images/dianthus-green.jpg": {},
+  "images/calla-white.jpg": {},
+  "images/mum-orange.jpg": {},
+  "images/statice-white.jpg": {},
   "images/pittosporum.jpg": {},
   "images/moluccella.jpg":  { by: "Agnieszka Kwiecień, Nova", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Moluccella_laevis_Molukia_g%C5%82adka_2020-09-20_01.jpg" },
   "images/cedar.jpg": {},
