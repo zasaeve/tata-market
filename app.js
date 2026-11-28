@@ -52,8 +52,8 @@ const FLOWERS = [
     colors: [{ id: "white", label: "白", swatch: "#F1EEF2", price: 100, img: "images/bletilla-white.jpg" }] },          // 200/5支
   { id: "aster", name: "孔雀紫苑", en: "Aster", cat: "配花", meaning: "優雅、精緻、新的開始",
     colors: [{ id: "std", label: "紫", swatch: "#B07CC9", price: 60, img: "images/aster.jpg" }] },          // 紫孔雀 100/20支
-  { id: "moluccella", name: "綠鈴草", en: "Bells of Ireland", cat: "配花", meaning: "好運、繁榮",
-    colors: [{ id: "green", label: "綠", swatch: "#B5D27A", price: 60, img: "images/moluccella.jpg" }] },          // 120/20支
+  { id: "lepidium", name: "綠鈴草", en: "Lepidium", cat: "配花", meaning: "",
+    colors: [{ id: "green", label: "綠", swatch: "#9DBE6A", price: 60, img: "images/lepidium.jpg" }] },          // 120/20支
   { id: "waxflower", name: "臘梅", en: "Waxflower", cat: "配花", meaning: "永恆的愛、幸福的婚姻",
     colors: [{ id: "white", label: "白", swatch: "#F3E9EA", price: 80, img: "images/waxflower.jpg" }] },          // 250/5支
   { id: "pittosporum", name: "小海桐", en: "Pittosporum", cat: "配花", meaning: "記住我、不要忘記我",
@@ -72,7 +72,7 @@ const REF = {
   "images/mum-orange.jpg": {},
   "images/statice-white.jpg": {},
   "images/pittosporum.jpg": {},
-  "images/moluccella.jpg":  { by: "Agnieszka Kwiecień, Nova", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Moluccella_laevis_Molukia_g%C5%82adka_2020-09-20_01.jpg" },
+  "images/lepidium.jpg": {},
   "images/cedar.jpg": {},
 };
 
